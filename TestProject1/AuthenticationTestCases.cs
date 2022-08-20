@@ -13,7 +13,7 @@ namespace TestProject1
         public void Login(IWebDriver driver)
         {
             driver.Url = "https://localhost:44307/";
-            driver.FindElement(By.Id("Email")).SendKeys("Owner1@gmail.com");
+            driver.FindElement(By.Id("Email")).SendKeys("Owner12@gmail.com");
             driver.FindElement(By.Id("Password")).SendKeys("123456");
             driver.FindElement(By.CssSelector(".col-xs-4")).Click();
             driver.FindElement(By.XPath(".//*[@id='introjs-dontShowAgain']")).Click();

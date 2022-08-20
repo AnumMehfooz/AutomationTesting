@@ -20,28 +20,20 @@ namespace TestProject1
             AuthenticationTestCases auth = new AuthenticationTestCases();
             auth.Login(driver);
 
-            shelvingBinPage(driver, "Launch");
-
+            shelvingBinPage(driver);
             TestAddBin(driver);
-            shelvingBinPage(driver, "Add");
-
+            shelvingBinPage(driver);
             TestEdit(driver);
-            shelvingBinPage(driver, "Edit");
-
             TestDelete(driver);
-            shelvingBinPage(driver, "Delete");
-
             TestDuplicate(driver);
-            shelvingBinPage(driver, "Duplicate");
-
             TestPrint(driver);
-            shelvingBinPage(driver, "Print");
+            shelvingBinPage(driver);
 
         }
-        public void shelvingBinPage(IWebDriver driver, string type)
+        public void shelvingBinPage(IWebDriver driver)
         {
             driver.Navigate().GoToUrl("https://localhost:44307/ShelvingBin");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             
         }
 
@@ -51,7 +43,7 @@ namespace TestProject1
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             SelectElement warehouseSelect = new SelectElement(driver.FindElement(By.XPath(".//*[@id='WarehouseId']")));
-            warehouseSelect.SelectByIndex(1);
+            warehouseSelect.SelectByIndex(0);
 
             IWebElement aisle = driver.FindElement(By.XPath(".//*[@id='Aisle']"));
             IWebElement bay = driver.FindElement(By.XPath(".//*[@id='Bay']"));
@@ -61,19 +53,20 @@ namespace TestProject1
             IWebElement height = driver.FindElement(By.XPath(".//*[@id='Height']"));
             IWebElement depth = driver.FindElement(By.XPath(".//*[@id='Depth']"));
 
-            aisle.SendKeys("22");
-            bay.SendKeys("2");
-            shelf.SendKeys("ku");
-            bin.SendKeys("9r");
+            aisle.SendKeys("A1");
+            bay.SendKeys("22");
+            shelf.SendKeys("2ku");
+            bin.SendKeys("9r2");
             width.Clear();
-            width.SendKeys("9");
+            width.SendKeys("92");
             height.Clear();
-            height.SendKeys("2");
+            height.SendKeys("22");
             depth.Clear();
-            depth.SendKeys("1");
+            depth.SendKeys("12");
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.FindElement(By.XPath("(.//*[@class='e-control e-btn e-lib e-primary e-flat'])[2]")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         public void TestEdit(IWebDriver driver)
@@ -99,19 +92,19 @@ namespace TestProject1
             IWebElement depth = driver.FindElement(By.XPath(".//*[@id='Depth']"));
 
             aisle.Clear();
-            aisle.SendKeys("A1");
+            aisle.SendKeys("A2");
             bay.Clear();
-            bay.SendKeys("V2");
+            bay.SendKeys("V22");
             shelf.Clear();
-            shelf.SendKeys("k3");
+            shelf.SendKeys("k23");
             bin.Clear();
-            bin.SendKeys("B4");
+            bin.SendKeys("B42");
             width.Clear();
-            width.SendKeys("5");
+            width.SendKeys("52");
             height.Clear();
-            height.SendKeys("1");
+            height.SendKeys("12");
             depth.Clear();
-            depth.SendKeys("2");
+            depth.SendKeys("22");
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.FindElement(By.XPath("(.//*[@class='e-control e-btn e-lib e-primary e-flat'])[2]")).Click();
@@ -150,7 +143,7 @@ namespace TestProject1
             driver.FindElement(By.LinkText("Print Bin Barcode(s)")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.FindElement(By.LinkText("Download PDF")).Click();
-            
+
             new WebDriverWait(driver, TimeSpan.FromSeconds(5)).Until(driver => driver.Url.Equals("https://localhost:44307/ShelvingBin/PrintBarcodes"));
 
         }
