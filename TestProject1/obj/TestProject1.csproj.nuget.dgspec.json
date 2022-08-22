@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[16.11.0, )"
             },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.4, )"
+            },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.2, )"

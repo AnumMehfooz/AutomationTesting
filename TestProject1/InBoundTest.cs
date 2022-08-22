@@ -28,7 +28,7 @@ namespace TestProject1
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             SelectElement sellerName = new SelectElement(driver.FindElement(By.XPath(".//*[@id='UserId']")));
-            sellerName.SelectByIndex(1);
+            sellerName.SelectByIndex(2);
 
             IWebElement masterCartonsNumber = driver.FindElement(By.Id("MasterCartonsNumber"));
             IWebElement personInCharge = driver.FindElement(By.Id("PersonInChargeSeller"));
@@ -36,7 +36,7 @@ namespace TestProject1
             IWebElement arivalDate = driver.FindElement(By.Name("ArrivalDate"));
             IWebElement proofingPictures = driver.FindElement(By.XPath(".//*[@id='ProofingPicturePicker']"));
 
-            personInCharge.SendKeys("22");
+            masterCartonsNumber.SendKeys("22");
             dispatchDate.Clear();
             dispatchDate.SendKeys("08/16/2022");
             arivalDate.Clear();
@@ -44,15 +44,15 @@ namespace TestProject1
             proofingPictures.SendKeys("C:\\Users\\DREAM-BEYOND\\Pictures\\Saved Pictures\\icon.png");
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.FindElement(By.XPath("(.//*[@class='e-control e-btn e-lib e-primary e-flat'])[2]")).Click();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.FindElement(By.XPath("//*[@id='TreeGrid_dialogEdit_wrapper']//div[3]//button[1]")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
-        public void EditInbound(IWebDriver driver)
-        {
-            driver.FindElement(By.XPath("(.//*[@class='e-rowcell'])[1]")).Click();
-            if 
-            driver.FindElement(By.XPath(".//*[@id='TreeGrid_edit']")).Click();
-        }
+        //public void EditInbound(IWebDriver driver)
+        //{
+        //    driver.FindElement(By.XPath("(.//*[@class='e-rowcell'])[1]")).Click();
+        //    if 
+        //    driver.FindElement(By.XPath(".//*[@id='TreeGrid_edit']")).Click();
+        //}
     }
 }

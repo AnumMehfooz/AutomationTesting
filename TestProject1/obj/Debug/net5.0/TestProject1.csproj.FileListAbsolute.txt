@@ -12,6 +12,7 @@ D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\TestProject1.runtimeconfi
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\TestProject1.runtimeconfig.dev.json
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\TestProject1.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\TestProject1.pdb
+D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Elasticsearch.Net.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.TestPlatform.CoreUtilities.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
@@ -19,6 +20,7 @@ D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.TestPlatform.Co
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.TestPlatform.CrossPlatEngine.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.TestPlatform.Utilities.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.Common.dll
+D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Nest.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\NuGet.Frameworks.dll
 D:\Projects\TestProject1\TestProject1\bin\Debug\net5.0\nunit.framework.dll

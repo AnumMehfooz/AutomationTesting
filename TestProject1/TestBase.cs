@@ -19,7 +19,7 @@ namespace TestProject1
         {
             driver = new ChromeDriver();       // Launches browser
             driver.Manage().Window.Maximize(); //Maximizes browser
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); //Set locator timeout to be 20s at max
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(70); //Set locator timeout to be 20s at max
         }
 
         //[OneTimeTearDown]

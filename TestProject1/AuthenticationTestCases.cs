@@ -15,9 +15,19 @@ namespace TestProject1
             driver.Url = "https://localhost:44307/";
             driver.FindElement(By.Id("Email")).SendKeys("Owner12@gmail.com");
             driver.FindElement(By.Id("Password")).SendKeys("123456");
-            driver.FindElement(By.CssSelector(".col-xs-4")).Click();
+            try
+            {
+                 driver.FindElement(By.CssSelector(".button")).Click();
+            }
+            catch (WebDriverException) { }
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(driver => driver.Url.Equals("https://localhost:44307/"));
+            try
+            {
             driver.FindElement(By.XPath(".//*[@id='introjs-dontShowAgain']")).Click();
-            
+            }
+            catch (WebDriverException){ }
+
+
         }
 
     }
