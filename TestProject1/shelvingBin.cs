@@ -117,7 +117,7 @@ namespace TestProject1
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
             //click on first row
-            driver.FindElement(By.XPath("(.//*[@class='e-rowcell'])[1]")).Click();
+            driver.FindElement(By.XPath("(//*[@id='TreeGrid_content_table']//tbody//tr[2]//td[2])[1]")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
             //click on edit button
@@ -145,6 +145,9 @@ namespace TestProject1
             driver.FindElement(By.XPath("//*[@id='printBarcodes']")).Click();
 
             new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(driver => driver.Url.Equals("https://localhost:44307/ShelvingBin/PrintBarcodes"));
+
+            driver.Navigate().Back();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(driver => driver.FindElement(By.XPath(".//*[@class='btn btn-info']")));
         }
     }
 }
