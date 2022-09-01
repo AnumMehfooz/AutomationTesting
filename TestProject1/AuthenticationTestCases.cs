@@ -13,7 +13,7 @@ namespace TestProject1
         public void Login(IWebDriver driver)
         {
             driver.Url = "https://localhost:44307/";
-            driver.FindElement(By.Id("Email")).SendKeys("Owner12@gmail.com");
+            driver.FindElement(By.Id("Email")).SendKeys("Owner1@gmail.com");
             driver.FindElement(By.Id("Password")).SendKeys("123456");
             try
             {
@@ -23,9 +23,9 @@ namespace TestProject1
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(driver => driver.Url.Equals("https://localhost:44307/"));
             try
             {
-            driver.FindElement(By.XPath(".//*[@id='introjs-dontShowAgain']")).Click();
+                driver.FindElement(By.XPath(".//*[@class='introjs-skipbutton']")).Click();
             }
-            catch (WebDriverException){ }
+            catch (WebDriverException) { }
 
 
         }

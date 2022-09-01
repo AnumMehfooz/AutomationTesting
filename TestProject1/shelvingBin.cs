@@ -17,8 +17,12 @@ namespace TestProject1
 
         public void Home()
         {
-            AuthenticationTestCases auth = new AuthenticationTestCases();
-            auth.Login(driver);
+            try
+            {
+               AuthenticationTestCases auth = new AuthenticationTestCases();
+               auth.Login(driver);
+            }
+            catch (WebDriverException) { }
 
             shelvingBinPage(driver);
             TestAddBin(driver);
@@ -32,41 +36,54 @@ namespace TestProject1
         }
         public void shelvingBinPage(IWebDriver driver)
         {
-            driver.Navigate().GoToUrl("https://localhost:44307/ShelvingBin");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            
+            try
+            {
+                driver.Navigate().GoToUrl("https://localhost:44307/ShelvingBin");
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
+            }
+            catch(WebDriverException) { }
+            //new WebDriverWait(driver, TimeSpan.FromSeconds(40)).Until(driver => driver.FindElement(By.XPath(".//html//body//div[1]//div//section//div//div")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(60)).Until(driver => driver.FindElement(By.XPath(".//*[@id='TreeGrid_content_table']//tbody//tr//td[1]//button")));
+
         }
 
         public void TestAddBin(IWebDriver driver)
         {
-            driver.FindElement(By.XPath(".//*[@id='TreeGrid_add']")).Click();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            try
+            {
+                new WebDriverWait(driver, TimeSpan.FromSeconds(40)).Until(driver => driver.FindElement(By.XPath(".//*[@id='TreeGrid_content_table']//tbody//tr//td[1]//button")));
+                driver.FindElement(By.XPath(".//*[@id='TreeGrid_add']//span[2]")).Click();
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
-            SelectElement warehouseSelect = new SelectElement(driver.FindElement(By.XPath(".//*[@id='WarehouseId']")));
-            warehouseSelect.SelectByIndex(0);
+                SelectElement warehouseSelect = new SelectElement(driver.FindElement(By.XPath(".//*[@id='WarehouseId']")));
+                warehouseSelect.SelectByIndex(0);
 
-            IWebElement aisle = driver.FindElement(By.XPath(".//*[@id='Aisle']"));
-            IWebElement bay = driver.FindElement(By.XPath(".//*[@id='Bay']"));
-            IWebElement shelf = driver.FindElement(By.XPath(".//*[@id='Shelf']"));
-            IWebElement bin = driver.FindElement(By.XPath(".//*[@id='Name']"));
-            IWebElement width = driver.FindElement(By.XPath(".//*[@id='Width']"));
-            IWebElement height = driver.FindElement(By.XPath(".//*[@id='Height']"));
-            IWebElement depth = driver.FindElement(By.XPath(".//*[@id='Depth']"));
+                IWebElement aisle = driver.FindElement(By.XPath(".//*[@id='Aisle']"));
+                IWebElement bay = driver.FindElement(By.XPath(".//*[@id='Bay']"));
+                IWebElement shelf = driver.FindElement(By.XPath(".//*[@id='Shelf']"));
+                IWebElement bin = driver.FindElement(By.XPath(".//*[@id='Name']"));
+                IWebElement width = driver.FindElement(By.XPath(".//*[@id='Width']"));
+                IWebElement height = driver.FindElement(By.XPath(".//*[@id='Height']"));
+                IWebElement depth = driver.FindElement(By.XPath(".//*[@id='Depth']"));
 
-            aisle.SendKeys("9o");
-            bay.SendKeys("9o");
-            shelf.SendKeys("9o");
-            bin.SendKeys("9");
-            width.Clear();
-            width.SendKeys("2");
-            height.Clear();
-            height.SendKeys("2");
-            depth.Clear();
-            depth.SendKeys("1");
+                RandomStringIntValues randomStringIntValues = new RandomStringIntValues();
+                aisle.SendKeys(randomStringIntValues.RandomString(2, true));
+                bay.SendKeys(randomStringIntValues.RandomString(2, true));
+                bin.SendKeys(randomStringIntValues.RandomString(2, true));
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.FindElement(By.XPath("(.//*[@class='e-control e-btn e-lib e-primary e-flat'])[2]")).Click();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+                width.Clear();
+                width.SendKeys("2");
+                height.Clear();
+                height.SendKeys("2");
+                depth.Clear();
+                depth.SendKeys("1");
+
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                driver.FindElement(By.XPath("(.//*[@class='e-control e-btn e-lib e-primary e-flat'])[2]")).Click();
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            }
+            catch (WebDriverException) { }
+
         }
 
         public void TestEdit(IWebDriver driver)
@@ -91,14 +108,15 @@ namespace TestProject1
             IWebElement height = driver.FindElement(By.XPath(".//*[@id='Height']"));
             IWebElement depth = driver.FindElement(By.XPath(".//*[@id='Depth']"));
 
+            RandomStringIntValues randomStringIntValues = new RandomStringIntValues();
             aisle.Clear();
-            aisle.SendKeys("oo");
+            aisle.SendKeys(randomStringIntValues.RandomString(2, true));
             bay.Clear();
-            bay.SendKeys("op");
+            bay.SendKeys(randomStringIntValues.RandomString(2, true));
             shelf.Clear();
-            shelf.SendKeys("oo");
+            shelf.SendKeys(randomStringIntValues.RandomString(2, true));
             bin.Clear();
-            bin.SendKeys("o9");
+            bin.SendKeys(randomStringIntValues.RandomString(2, true));
             width.Clear();
             width.SendKeys("2");
             height.Clear();
@@ -116,16 +134,16 @@ namespace TestProject1
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
-            //click on first row
-            driver.FindElement(By.XPath("(//*[@id='TreeGrid_content_table']//tbody//tr[2]//td[2])[1]")).Click();
+            driver.FindElement(By.XPath(".//*[@id='TreeGrid_content_table']//tbody//tr[2]//td[1]")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
-            //click on edit button
             driver.FindElement(By.XPath(".//*[@id='TreeGrid_delete']")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
             driver.FindElement(By.XPath("(.//*[@class='e-control e-btn e-lib e-primary e-flat'])[1]")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+
+            driver.Navigate().Refresh();
         }
 
         public void TestDuplicate(IWebDriver driver)

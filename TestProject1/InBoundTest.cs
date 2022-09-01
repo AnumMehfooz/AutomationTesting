@@ -22,6 +22,7 @@ namespace TestProject1
         {
             driver.Navigate().GoToUrl("https://localhost:44307/Inbound");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            new WebDriverWait(driver, TimeSpan.FromSeconds(40)).Until(driver => driver.FindElement(By.XPath(".//*[@id='TreeGrid_content_table']//tbody//tr//td[2]//div//button[1]")));
         }
         public void AddInbound(IWebDriver driver)
         {
@@ -33,7 +34,7 @@ namespace TestProject1
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             SelectElement sellerName = new SelectElement(driver.FindElement(By.XPath(".//*[@id='UserId']")));
-            sellerName.SelectByIndex(2);
+            sellerName.SelectByIndex(1);
 
             IWebElement masterCartonsNumber = driver.FindElement(By.Id("MasterCartonsNumber"));
             IWebElement personInCharge = driver.FindElement(By.Id("PersonInChargeSeller"));
@@ -47,7 +48,6 @@ namespace TestProject1
             //element.sendkeys(s1);
 
             masterCartonsNumber.SendKeys( randomStringIntValues.RandomString(6, true));
-            //masterCartonsNumber.SendKeys("2dq");
             dispatchDate.Clear();
             dispatchDate.SendKeys("08/23/2022");
             arivalDate.Clear();
@@ -57,7 +57,9 @@ namespace TestProject1
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.FindElement(By.XPath("//*[@id='TreeGrid_dialogEdit_wrapper']//div[3]//button[1]")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
         }
+
 
         //public void DetailsPage(IWebDriver driver)
         //{
@@ -69,19 +71,19 @@ namespace TestProject1
         //        AddSingleProduct(driver);
         //    }
 
-            //}
-            //public void AddSingleProduct(IWebDriver driver)
-            //{
-            //    new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(driver => driver.FindElement(By.XPath(".//html//body//div[1]//div//section[2]")));
-            //    driver.FindElement(By.XPath("//*[@id='LineItems_add']//span[2]")).Click();
-            //    //driver.FindElement(By.XPath("//*[@id='LineItems_content_table']/tbody/tr/td[1]"));
+        //}
+        //public void AddSingleProduct(IWebDriver driver)
+        //{
+        //    new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(driver => driver.FindElement(By.XPath(".//html//body//div[1]//div//section[2]")));
+        //    driver.FindElement(By.XPath("//*[@id='LineItems_add']//span[2]")).Click();
+        //    //driver.FindElement(By.XPath("//*[@id='LineItems_content_table']/tbody/tr/td[1]"));
 
-            //    SelectElement products = new SelectElement(driver.FindElement(By.XPath("//*[@id='LineItemsEditForm']/span")));
-            //    products.SelectByIndex(0);
+        //    SelectElement products = new SelectElement(driver.FindElement(By.XPath("//*[@id='LineItemsEditForm']/span")));
+        //    products.SelectByIndex(0);
 
-            //    IWebElement AddQuantity =  driver.FindElement(By.XPath("//*[@id='LineItems_content_table']//tbody//tr//td[2]"));
-            //    AddQuantity.SendKeys()
+        //    IWebElement AddQuantity =  driver.FindElement(By.XPath("//*[@id='LineItems_content_table']//tbody//tr//td[2]"));
+        //    AddQuantity.SendKeys()
 
-            //}
-        }
+        //}
+    }
 }
