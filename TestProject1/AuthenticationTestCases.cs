@@ -12,18 +12,18 @@ namespace TestProject1
     {
         public void Login(IWebDriver driver)
         {
-            driver.Url = "https://localhost:44307/";
-            driver.FindElement(By.Id("Email")).SendKeys("Owner1@gmail.com");
+            driver.Url = "https://stacketpro-staging.azurewebsites.net/Account/Login";
+            driver.FindElement(By.Id("Email")).SendKeys("taken83828@vpsrec.com");
             driver.FindElement(By.Id("Password")).SendKeys("123456");
             try
             {
                  driver.FindElement(By.CssSelector(".button")).Click();
             }
             catch (WebDriverException) { }
-            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(driver => driver.Url.Equals("https://localhost:44307/"));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(driver => driver.Url.Equals("https://stacketpro-staging.azurewebsites.net/Account/Login"));
             try
             {
-                driver.FindElement(By.XPath(".//*[@class='introjs-skipbutton']")).Click();
+                driver.FindElement(By.XPath(".//html//body//div[6]//div//div[1]//a")).Click();
             }
             catch (WebDriverException) { }
 

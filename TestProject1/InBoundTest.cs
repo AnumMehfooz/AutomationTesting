@@ -20,7 +20,7 @@ namespace TestProject1
         }
         public void InBoundPage(IWebDriver driver)
         {
-            driver.Navigate().GoToUrl("https://localhost:44307/Inbound");
+            driver.Navigate().GoToUrl("https://stacketpro-staging.azurewebsites.net/Inbound");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             new WebDriverWait(driver, TimeSpan.FromSeconds(40)).Until(driver => driver.FindElement(By.XPath(".//*[@id='TreeGrid_content_table']//tbody//tr//td[2]//div//button[1]")));
         }
@@ -52,7 +52,7 @@ namespace TestProject1
             dispatchDate.SendKeys("08/23/2022");
             arivalDate.Clear();
             arivalDate.SendKeys("08/28/2022");
-            proofingPictures.SendKeys("C:\\Users\\DREAM-BEYOND\\Pictures\\Saved Pictures\\icon.png");
+            //proofingPictures.SendKeys("C:\\Users\\DREAM-BEYOND\\Pictures\\Saved Pictures\\icon.png");
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.FindElement(By.XPath("//*[@id='TreeGrid_dialogEdit_wrapper']//div[3]//button[1]")).Click();
