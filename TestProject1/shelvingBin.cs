@@ -38,7 +38,7 @@ namespace TestProject1
         {
             try
             {
-                driver.Navigate().GoToUrl("https://localhost:44307/ShelvingBin");
+                driver.Navigate().GoToUrl("https://stacketpro-staging.azurewebsites.net/ShelvingBin");
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
             }
             catch(WebDriverException) { }
@@ -162,7 +162,7 @@ namespace TestProject1
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.FindElement(By.XPath("//*[@id='printBarcodes']")).Click();
 
-            new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(driver => driver.Url.Equals("https://localhost:44307/ShelvingBin/PrintBarcodes"));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(driver => driver.Url.Equals("https://stacketpro-staging.azurewebsites.net/ShelvingBin/PrintBarcodes"));
 
             driver.Navigate().Back();
             new WebDriverWait(driver, TimeSpan.FromSeconds(20)).Until(driver => driver.FindElement(By.XPath(".//*[@class='btn btn-info']")));

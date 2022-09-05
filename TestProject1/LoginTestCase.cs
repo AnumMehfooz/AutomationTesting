@@ -21,7 +21,7 @@ namespace TestProject1
         [Test]
         public void verifyInvalidLogin()
         {
-            driver.Url = "https://localhost:44307/";
+            driver.Url = "https://stacketpro-staging.azurewebsites.net/Account/Login";
             driver.FindElement(By.Id("Email")).SendKeys("Invalid@gmail.com");
             driver.FindElement(By.Id("Password")).SendKeys("12343333");
             driver.FindElement(By.CssSelector(".col-xs-4")).Click();
@@ -31,7 +31,7 @@ namespace TestProject1
         [Test]
         public void invalidPassword()
         {
-            driver.Url = "https://localhost:44307/";
+            driver.Url = "https://stacketpro-staging.azurewebsites.net/Account/Login";
             driver.FindElement(By.Id("Email")).SendKeys("Owner1@gmail.com");
             driver.FindElement(By.Id("Password")).SendKeys("12343333");
             driver.FindElement(By.CssSelector(".col-xs-4")).Click();

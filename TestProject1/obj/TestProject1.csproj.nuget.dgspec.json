@@ -1,34 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\TestProject1\\TestProject1\\TestProject1.csproj": {}
+    "D:\\AutomationTesting\\TestProject1\\TestProject1.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\TestProject1\\TestProject1\\TestProject1.csproj": {
+    "D:\\AutomationTesting\\TestProject1\\TestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\TestProject1\\TestProject1\\TestProject1.csproj",
+        "projectUniqueName": "D:\\AutomationTesting\\TestProject1\\TestProject1.csproj",
         "projectName": "TestProject1",
-        "projectPath": "D:\\Projects\\TestProject1\\TestProject1\\TestProject1.csproj",
-        "packagesPath": "C:\\Users\\DREAM-BEYOND\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\TestProject1\\TestProject1\\obj\\",
+        "projectPath": "D:\\AutomationTesting\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\DREAM BEYOND\\.nuget\\packages\\",
+        "outputPath": "D:\\AutomationTesting\\TestProject1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\DREAM-BEYOND\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Users\\DREAM BEYOND\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +85,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -101,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
