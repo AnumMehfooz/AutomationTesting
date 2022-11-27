@@ -24,6 +24,8 @@ namespace TestProject1
 
             Branch(driver);
             AddBranch(driver);
+            EditBranch(driver);
+
         }
 
         public void Branch(IWebDriver driver)
@@ -40,12 +42,12 @@ namespace TestProject1
 
 
             driver.FindElement(By.Id("TreeGrid_add")).Click();
-            driver.FindElement(By.Id("branchName")).SendKeys("XYZ");
-            driver.FindElement(By.Id("BranchCode")).SendKeys("12323");
-            driver.FindElement(By.Id("Street1")).SendKeys("Gulshan");
-            driver.FindElement(By.Id("City")).SendKeys("Karachi");
-            driver.FindElement(By.Id("State")).SendKeys("Sindh");
-            driver.FindElement(By.Id("Country")).SendKeys("Pakistan");
+            driver.FindElement(By.Id("branchName")).SendKeys("Abc");
+            driver.FindElement(By.Id("BranchCode")).SendKeys("987");
+            driver.FindElement(By.Id("Street1")).SendKeys("abcs");
+            driver.FindElement(By.Id("City")).SendKeys("city123");
+            driver.FindElement(By.Id("State")).SendKeys("state12");
+            driver.FindElement(By.Id("Country")).SendKeys("country123");
             driver.FindElement(By.Id("ZipCode")).SendKeys("98783");
 
             //click on save button

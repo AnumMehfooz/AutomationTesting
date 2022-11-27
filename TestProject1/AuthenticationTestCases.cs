@@ -13,7 +13,7 @@ namespace TestProject1
         public void Login(IWebDriver driver)
         {
             driver.Url = "https://stacketpro-staging.azurewebsites.net/Account/Login";
-            driver.FindElement(By.Id("Email")).SendKeys("taken83828@vpsrec.com");
+            driver.FindElement(By.Id("Email")).SendKeys("owais.afsar@outlook.com");
             driver.FindElement(By.Id("Password")).SendKeys("123456");
             try
             {
