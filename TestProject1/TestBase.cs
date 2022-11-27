@@ -17,9 +17,20 @@ namespace TestProject1
         [OneTimeSetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();       // Launches browser
-            driver.Manage().Window.Maximize(); //Maximizes browser
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(70); //Set locator timeout to be 20s at max
+            try
+            {
+                //System.setProperty("webdriver.chrome.driver","D:\\chromedriver_win32\\chromedriver.exe");
+
+                driver = new ChromeDriver();       // Launches browser
+                driver.Manage().Window.Maximize(); //Maximizes browser
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(70); //Set locator timeout to be 20s at max
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
         }
 
         //[OneTimeTearDown]
